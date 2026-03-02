@@ -28,11 +28,11 @@ When executed via the VM console, this script:
 To permanently and correctly configure all network interfaces (MGMT, PROD, NAS) once SSH access has been restored using the mgmt.sh script.
 ### How it works
 This script runs interactively, looping through every detected physical interface and prompting the administrator to assign a specific role to it. It displays the current MAC address and currently assigned IP to help identify the port.
-Available roles:
 
+Available roles:
 * **[1] MGMT (Management):** Skips configuration, preserving the lifeline IP assigned by the MGMT script.
 * **[2] PROD (Production):** Prompts for IP, CIDR Prefix, and an optional Gateway.
-    * Automatically calculates the Netmask.
+    * **Automatically calculates the Netmask.**
     * **Dynamic DNS Injection:** Automatically assigns specific DNS servers based on the starting octets of the provided IP address (e.g., IPs starting with 192.1* receive 10.222.10.10, while IPs starting with 192.2* receive 20.222.10.10).
     * **Appends predefined search domains.**
 * **[3] NAS (Storage):** Prompts for IP and Prefix only. Configures the interface without Gateway or DNS.
